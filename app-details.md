@@ -14,7 +14,7 @@ Done
 * Components should only be as smart as they need to be (5 pts)
 * App is styled appropriately with NM toolkit (5 pts)
 
-
+* If on details page, header should contain working Home link (5 pts)
 * User should be able to filter repos by primary language (10 pts)
 * Search button should be disabled if text field is blank (5 pts)
 * Valid username should pull repository data from Github API and display on page (10 pts)

@@ -59,7 +59,7 @@ class RepoList extends Component{
     render(){
         return(
             <div id="repoList" className="row text-center">
-                <h3>"UserNames" repositories</h3>
+                <h3>Repositories</h3>
                 <label>Filter repos by primary language</label>
                 <select onChange={this.handleFilter} defaultValue="all">
                     <option value="all">All</option>
@@ -81,8 +81,8 @@ class RepoList extends Component{
 }
 
 RepoList.propTypes={
-    repos: PropTypes.func.isRequired,
-    updateSelectedRepo: PropTypes.string.isRequired
+    updateSelectedRepo: PropTypes.func.isRequired
+    //purposely left off repos as it may be mulitple types.
 }
 
 export default RepoList;

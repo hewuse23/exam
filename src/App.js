@@ -3,7 +3,8 @@ import SearchForm from './SearchForm';
 import RepoList from './RepoList'
 import RepoDetails from './RepoDetails'
 import { getReposForUser } from './apiHelper'
-import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Redirect, Link } from 'react-router-dom';
+
 import './App.css'
 
 class App extends Component {
@@ -48,15 +49,30 @@ class App extends Component {
             })
     };
 
+    // very close to having the routes done here.
+    //<SearchForm updateRepos={this.updateRepos} errorText={this.state.errorText}/>
+//{(this.state.repos.length>1)? <RepoList repos={this.state.repos} updateSelectedRepo={this.updateSelectedRepo}/>:null}
     render() {
       return (
           <Router>
               <div className="App">
                   <h1 className="col small-16">Github viewer</h1>
-                    <button className="col small-3">Home</button>
+                  <Link to="/"><button className="col small-3">Home</button></Link>
                     <hr />
-                    <SearchForm updateRepos={this.updateRepos} errorText={this.state.errorText}/>
-                    {(this.state.repos.length>1)? <RepoList repos={this.state.repos} updateSelectedRepo={this.updateSelectedRepo}/>:null}
+                    <Route exact path="/" render={(props)=>{
+                        return (
+                            <SearchForm updateRepos={this.updateRepos} errorText={this.state.errorText}/>
+                        )
+                    }
+                    } />
+                  <Route exact path="/" render={(props)=> {
+                      if (this.state.repos.length > 1) {
+                          return <RepoList repos={this.state.repos} updateSelectedRepo={this.updateSelectedRepo}/>
+                      } else {
+                          return null
+                      }
+                  }} />
+
                     {(this.state.selectedRepo.id)?
                       <Route path='/repos/:id' render={(props)=> {
                           console.log('hit route')

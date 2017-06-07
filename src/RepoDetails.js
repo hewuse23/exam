@@ -37,6 +37,6 @@ const RepoDetails=(props)=>{
 };
 
 RepoDetails.propTypes={
-    repoDetails: PropTypes.func.isRequired
+    repoDetails: PropTypes.object.isRequired
 };
 export default RepoDetails;
