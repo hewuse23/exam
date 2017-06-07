@@ -3,38 +3,86 @@
  */
 'use strict';
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+
 
 
 class RepoList extends Component{
     //store filter as state
+    constructor(props){
+        super(props);
+        this.state = {
+            filter: 'all'
+        }
+
+    }
+
+    handleFilter=(event)=>{
+        this.setState({filter:event.target.value})
+    }
+
+    filterBuilder(arr){
+        const results = arr.reduce((accum,repoObj)=>{
+            let language = repoObj.language;
+            accum[language]=true;
+            return accum;
+        },{});
+        console.log(Object.keys(results))
+
+        const filterOptionsArr = (
+            (Object.keys(results)).map((language, ind)=>{
+                return(
+                <option key={ind} value={language}>{language}</option>)
+            })
+        )
+        console.log(filterOptionsArr)
+        return filterOptionsArr;
+    }
+
+    reposTableRows = ()=>{
+        console.log('repolist');
+        console.log(this.props.repos)
+        return (this.props.repos.map((repo)=> {
+            if (repo.language === this.state.filter || this.state.filter === 'all') {
+                return (
+                    <tr key={repo.id}>
+                        <td key={repo.id}><Link onClick={() => this.props.updateSelectedRepo(repo)}
+                                                to={`/repos/${repo.id}`}>{repo.name}</Link></td>
+                    </tr>
+                )
+            }
+        }))
+
+    }
 
     render(){
         return(
             <div id="repoList" className="row text-center">
                 <h3>"UserNames" repositories</h3>
                 <label>Filter repos by primary language</label>
-                <select>
+                <select onChange={this.handleFilter} defaultValue="all">
                     <option value="all">All</option>
-                    <option value="javascript">JavaScript</option>
-                    <option value="html">HTML</option>
-                    <option value="ruby">Ruby</option>
+                    {this.filterBuilder(this.props.repos)}
                 </select>
                 <table className="table actionable">
-                    <tr className="actionable">
-                        <th>Name</th>
-                    </tr>
-                    <tr>
-                        <td>Repo 1</td>
-                    </tr>
-                    <tr>
-                        <td>Repo 2</td>
-                    </tr>
-                    <tr>
-                        <td>Repo 3</td>
-                    </tr>
+                    <thead>
+                        <tr className="actionable">
+                            <th>Name</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {this.reposTableRows()}
+                    </tbody>
                 </table>
             </div>
         )
     }
 }
+
+RepoList.propTypes={
+    repos: PropTypes.func.isRequired,
+    updateSelectedRepo: PropTypes.string.isRequired
+}
+
 export default RepoList;

@@ -3,27 +3,40 @@
  */
 'use strict';
 import React from 'react';
+import PropTypes from 'prop-types';
 
-const RepoDetails=()=>{
+
+const RepoDetails=(props)=>{
     //display only - no state
+    console.log('details');
+    console.log(props);
+
     return(
         <div id="repoList" className="row text-center">
-            <h3>"RepoName" details</h3>
+            <h3>{props.repoDetails.name} details</h3>
 
             <table className="table repoDetailTable">
-                <tr>
-                    <th>Stars</th>
-                    <th>Forks</th>
-                    <th>Primary Language</th>
-                </tr>
-                <tr>
-                    <td>32</td>
-                    <td>6</td>
-                    <td>JavaScript</td>
-                </tr>
 
+                <thead>
+                    <tr>
+                        <th>Stars</th>
+                        <th>Forks</th>
+                        <th>Primary Language</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{props.repoDetails.stargazers_count}</td>
+                        <td>{props.repoDetails.forks}</td>
+                        <td>{props.repoDetails.language}</td>
+                    </tr>
+                </tbody>
             </table>
         </div>
     )
+};
+
+RepoDetails.propTypes={
+    repoDetails: PropTypes.func.isRequired
 };
 export default RepoDetails;

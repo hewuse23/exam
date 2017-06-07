@@ -1,0 +1,207 @@
+archive_url
+    :
+    "https://api.github.com/repos/hewuse23/crazy_counter/{archive_format}{/ref}"
+assignees_url
+    :
+    "https://api.github.com/repos/hewuse23/crazy_counter/assignees{/user}"
+blobs_url
+    :
+    "https://api.github.com/repos/hewuse23/crazy_counter/git/blobs{/sha}"
+branches_url
+    :
+    "https://api.github.com/repos/hewuse23/crazy_counter/branches{/branch}"
+clone_url
+    :
+    "https://github.com/hewuse23/crazy_counter.git"
+collaborators_url
+    :
+    "https://api.github.com/repos/hewuse23/crazy_counter/collaborators{/collaborator}"
+comments_url
+    :
+    "https://api.github.com/repos/hewuse23/crazy_counter/comments{/number}"
+commits_url
+    :
+    "https://api.github.com/repos/hewuse23/crazy_counter/commits{/sha}"
+compare_url
+    :
+    "https://api.github.com/repos/hewuse23/crazy_counter/compare/{base}...{head}"
+contents_url
+    :
+    "https://api.github.com/repos/hewuse23/crazy_counter/contents/{+path}"
+contributors_url
+    :
+    "https://api.github.com/repos/hewuse23/crazy_counter/contributors"
+created_at
+    :
+    "2017-05-26T18:51:31Z"
+default_branch
+    :
+    "master"
+deployments_url
+    :
+    "https://api.github.com/repos/hewuse23/crazy_counter/deployments"
+description
+    :
+    null
+downloads_url
+    :
+    "https://api.github.com/repos/hewuse23/crazy_counter/downloads"
+events_url
+    :
+    "https://api.github.com/repos/hewuse23/crazy_counter/events"
+fork
+    :
+    true
+forks
+    :
+    0
+forks_count
+    :
+    0
+forks_url
+    :
+    "https://api.github.com/repos/hewuse23/crazy_counter/forks"
+full_name
+    :
+    "hewuse23/crazy_counter"
+git_commits_url
+    :
+    "https://api.github.com/repos/hewuse23/crazy_counter/git/commits{/sha}"
+git_refs_url
+    :
+    "https://api.github.com/repos/hewuse23/crazy_counter/git/refs{/sha}"
+git_tags_url
+    :
+    "https://api.github.com/repos/hewuse23/crazy_counter/git/tags{/sha}"
+git_url
+    :
+    "git://github.com/hewuse23/crazy_counter.git"
+has_downloads
+    :
+    true
+has_issues
+    :
+    false
+has_pages
+    :
+    false
+has_projects
+    :
+    true
+has_wiki
+    :
+    true
+homepage
+    :
+    null
+hooks_url
+    :
+    "https://api.github.com/repos/hewuse23/crazy_counter/hooks"
+html_url
+    :
+    "https://github.com/hewuse23/crazy_counter"
+id
+    :
+    92539682
+issue_comment_url
+    :
+    "https://api.github.com/repos/hewuse23/crazy_counter/issues/comments{/number}"
+issue_events_url
+    :
+    "https://api.github.com/repos/hewuse23/crazy_counter/issues/events{/number}"
+issues_url
+    :
+    "https://api.github.com/repos/hewuse23/crazy_counter/issues{/number}"
+keys_url
+    :
+    "https://api.github.com/repos/hewuse23/crazy_counter/keys{/key_id}"
+labels_url
+    :
+    "https://api.github.com/repos/hewuse23/crazy_counter/labels{/name}"
+language
+    :
+    "HTML"
+languages_url
+    :
+    "https://api.github.com/repos/hewuse23/crazy_counter/languages"
+merges_url
+    :
+    "https://api.github.com/repos/hewuse23/crazy_counter/merges"
+milestones_url
+    :
+    "https://api.github.com/repos/hewuse23/crazy_counter/milestones{/number}"
+mirror_url
+    :
+    null
+name
+    :
+    "crazy_counter"
+notifications_url
+    :
+    "https://api.github.com/repos/hewuse23/crazy_counter/notifications{?since,all,participating}"
+open_issues
+    :
+    0
+open_issues_count
+    :
+    0
+owner
+    :
+    Object
+private
+    :
+    false
+pulls_url
+    :
+    "https://api.github.com/repos/hewuse23/crazy_counter/pulls{/number}"
+pushed_at
+    :
+    "2017-05-26T19:15:22Z"
+releases_url
+    :
+    "https://api.github.com/repos/hewuse23/crazy_counter/releases{/id}"
+size
+    :
+    5
+ssh_url
+    :
+    "git@github.com:hewuse23/crazy_counter.git"
+stargazers_count
+    :
+    0
+stargazers_url
+    :
+    "https://api.github.com/repos/hewuse23/crazy_counter/stargazers"
+statuses_url
+    :
+    "https://api.github.com/repos/hewuse23/crazy_counter/statuses/{sha}"
+subscribers_url
+    :
+    "https://api.github.com/repos/hewuse23/crazy_counter/subscribers"
+subscription_url
+    :
+    "https://api.github.com/repos/hewuse23/crazy_counter/subscription"
+svn_url
+    :
+    "https://github.com/hewuse23/crazy_counter"
+tags_url
+    :
+    "https://api.github.com/repos/hewuse23/crazy_counter/tags"
+teams_url
+    :
+    "https://api.github.com/repos/hewuse23/crazy_counter/teams"
+trees_url
+    :
+    "https://api.github.com/repos/hewuse23/crazy_counter/git/trees{/sha}"
+updated_at
+    :
+    "2017-05-26T18:51:32Z"
+url
+    :
+    "https://api.github.com/repos/hewuse23/crazy_counter"
+watchers
+    :
+    0
+watchers_count
+    :
+    0
