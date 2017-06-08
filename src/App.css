@@ -18,4 +18,10 @@ body {
     width:540px
 }
 
+#loader{
+    margin: auto auto;
+    width: 540px;
+    text-align: center;
+}
+
 

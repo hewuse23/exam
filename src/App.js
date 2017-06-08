@@ -13,13 +13,13 @@ class App extends Component {
         this.state = {
             repos:[],
             selectedRepo:{},
-            errorText: ''
+            errorText: '',
+            currentUser: '',
+            isLoading: false
         }
     }
 
     updateSelectedRepo=(repo)=>{
-        console.log('repo selected')
-        console.log(repo)
         this.setState({
             selectedRepo: repo
         })
@@ -27,60 +27,73 @@ class App extends Component {
     }
 
     updateRepos=(userName)=>{
+
+        this.setState({
+            isLoading:true
+        })
+
         getReposForUser(userName)
             .then((repos) => {
-                console.log('repos')
-                console.log(repos)
                 if(!Array.isArray(repos)){
                     this.setState({
                         errorText: "Invalid username",
                         repos: [],
-                        selectedRepo:{}
+                        currentUser: '',
+                        selectedRepo:{},
+                        isLoading: false
                     })
                 }else{
                     this.setState({
                         repos: repos,
+                        currentUser: userName,
                         errorText: '',
+                        isLoading: false
+
                     })
                 }
             })
             .catch((err)=>{
                 console.log(err)
+                this.setState({
+                    errorText: "Invalid username",
+                    repos: [],
+                    currentUser: '',
+                    selectedRepo:{},
+                    isLoading: false
+                })
             })
     };
 
-    // very close to having the routes done here.
-    //<SearchForm updateRepos={this.updateRepos} errorText={this.state.errorText}/>
-//{(this.state.repos.length>1)? <RepoList repos={this.state.repos} updateSelectedRepo={this.updateSelectedRepo}/>:null}
     render() {
       return (
           <Router>
               <div className="App">
-                  <h1 className="col small-16">Github viewer</h1>
-                  <Link to="/"><button className="col small-3">Home</button></Link>
+                  <h1 className="col small-16">Github Viewer</h1>
+
+                  {((this.state.selectedRepo.id) ?<Link to="/"><button onClick={(e)=>{this.setState({selectedRepo:''})}} className="col small-3">Home</button></Link>:null)}
                     <hr />
-                    <Route exact path="/" render={(props)=>{
-                        return (
-                            <SearchForm updateRepos={this.updateRepos} errorText={this.state.errorText}/>
-                        )
-                    }
+                      <Route exact path="/" render={(props)=>{
+                            return (
+                                <SearchForm updateRepos={this.updateRepos} errorText={this.state.errorText}/>
+                            )
+                        }
                     } />
+                  {(this.state.isLoading)?
+                        <div id="loader"><span className="loading-indicator row"></span></div>
+                      :null}
                   <Route exact path="/" render={(props)=> {
                       if (this.state.repos.length > 1) {
-                          return <RepoList repos={this.state.repos} updateSelectedRepo={this.updateSelectedRepo}/>
+                          return <RepoList currentUser={this.state.currentUser} repos={this.state.repos} updateSelectedRepo={this.updateSelectedRepo}/>
                       } else {
                           return null
                       }
                   }} />
 
-                    {(this.state.selectedRepo.id)?
+                  {(this.state.selectedRepo.id)?
                       <Route path='/repos/:id' render={(props)=> {
-                          console.log('hit route')
-                          console.log(props)
                           return <RepoDetails repoDetails={this.state.selectedRepo} {...props} />
-                          }
-                      }/>
-                    :null}
+                          }}/>
+                      :null}
               </div>
           </Router>
       );

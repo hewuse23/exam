@@ -28,7 +28,6 @@ class RepoList extends Component{
             accum[language]=true;
             return accum;
         },{});
-        console.log(Object.keys(results))
 
         const filterOptionsArr = (
             (Object.keys(results)).map((language, ind)=>{
@@ -36,13 +35,11 @@ class RepoList extends Component{
                 <option key={ind} value={language}>{language}</option>)
             })
         )
-        console.log(filterOptionsArr)
         return filterOptionsArr;
     }
 
     reposTableRows = ()=>{
-        console.log('repolist');
-        console.log(this.props.repos)
+
         return (this.props.repos.map((repo)=> {
             if (repo.language === this.state.filter || this.state.filter === 'all') {
                 return (
@@ -59,7 +56,7 @@ class RepoList extends Component{
     render(){
         return(
             <div id="repoList" className="row text-center">
-                <h3>Repositories</h3>
+                <h3>{this.props.currentUser} repositories</h3>
                 <label>Filter repos by primary language</label>
                 <select onChange={this.handleFilter} defaultValue="all">
                     <option value="all">All</option>
@@ -81,7 +78,8 @@ class RepoList extends Component{
 }
 
 RepoList.propTypes={
-    updateSelectedRepo: PropTypes.func.isRequired
+    updateSelectedRepo: PropTypes.func.isRequired,
+    currentUser: PropTypes.string.isRequired
     //purposely left off repos as it may be mulitple types.
 }
 
